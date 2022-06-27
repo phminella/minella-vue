@@ -69,22 +69,21 @@
           </p>
           <p>
             <img height="20" src="/img/icon-vue.png" alt="" />
-            <a href="vue-project.zip"
+            <a href="https://github.com/phminella/minella-vue/tree/master" target="_blank"
               >vue project
               <img
-                height="20"
-                class="icon-download"
-                src="/img/icon-download.png"
-                alt=""
-                v-if="$store.state.darkMode"
-              />
-              <img
-                height="20"
-                class="icon-download"
-                src="/img/icon-download-dark.png"
-                alt=""
-                v-if="!$store.state.darkMode"
-              />
+              height="20"
+              class="icon-download"
+              src="/img/icon-github.png"
+              alt=""
+              v-if="$store.state.darkMode" />
+            <img
+              height="20"
+              class="icon-download"
+              src="/img/icon-github.svg"
+              alt=""
+              v-if="!$store.state.darkMode"
+          />
             </a>
           </p>
           <p>

@@ -50,18 +50,18 @@
           /></a>
         </li>
         <li>
-          <a href="vue-project.zip">
+          <a href="https://github.com/phminella/minella-vue/tree/master" target="_blank">
             <img width="20" src="/img/icon-vue.png" alt="" /> Vue Project
             <img
               height="25"
               class="icon-download"
-              src="/img/icon-download.png"
+              src="/img/icon-github.png"
               alt=""
               v-if="!$store.state.darkMode" />
             <img
               height="25"
               class="icon-download"
-              src="/img/icon-download-dark.png"
+              src="/img/icon-github.svg"
               alt=""
               v-if="$store.state.darkMode"
           /></a>
