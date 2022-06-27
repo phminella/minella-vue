@@ -106,7 +106,7 @@
           </p>
           <p>
               <img height="20" src="/img/work/flags/japan.svg" alt="" />
-              <a href="minella-resume-ミネラパウロ履歴書.xlsx" download
+              <a href="ミネラパウロ履歴書.xlsx" download
               >履歴書.xlsx (japanese)
                 <img
                   height="20"
