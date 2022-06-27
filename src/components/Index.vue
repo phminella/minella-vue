@@ -50,7 +50,10 @@
           /></a>
         </li>
         <li>
-          <a href="https://github.com/phminella/minella-vue/tree/master" target="_blank">
+          <a
+            href="https://github.com/phminella/minella-vue/tree/master"
+            target="_blank"
+          >
             <img width="20" src="/img/icon-vue.png" alt="" /> Vue Project
             <img
               height="25"
@@ -233,6 +236,9 @@ export default {
 
         .title-tab {
           padding: 10px;
+          &:first-child:hover {
+            background: $light !important;
+          }
         }
       }
       h1 {
@@ -272,6 +278,13 @@ export default {
         svg {
           filter: invert(99%) sepia(43%) saturate(151%) hue-rotate(242deg)
             brightness(115%) contrast(93%);
+        }
+      }
+    }
+    #main #title .title-tabs .title-tab {
+      &:first-child {
+        &:hover {
+          background: black !important;
         }
       }
     }
