@@ -1,0 +1,180 @@
+<template>
+  <!-- Information about colors and dark mode -->
+  <div class="arrow_box" id="arrow_box">
+    {{ $t("message.explanation") }}
+  </div>
+  <!-- Router view (Just for example purposes) and directives  -->
+  <the-nav></the-nav>
+  <router-view></router-view>
+  <about></about>
+  <work></work>
+  <education></education>
+  <contact></contact>
+  <!-- Button to move page back to the top -->
+  <div class="move-up" :class="{ dark: $store.state.darkMode }">
+    <a href="#" v-scroll-to="'#home'"
+      ><img height="25" src="/img/arrow-up.svg"
+    /></a>
+  </div>
+</template>
+<script>
+import TheNav from "./components/TheNav.vue";
+import Work from "./components/Work.vue";
+import Education from "./components/Education.vue";
+import About from "./components/About.vue";
+import Contact from "./components/Contact.vue";
+import scrollSpy from "./plugins/scroll-spy";
+export default {
+  components: { TheNav, Work, Education, About, Contact },
+  mounted() {
+    scrollSpy();
+    if (localStorage.getItem("bgColor")) {
+      document.getElementById("arrow_box").style.display = "none";
+      this.$store.dispatch("changeBgColor", localStorage.getItem("bgColor"));
+    }
+    if (localStorage.getItem("darkMode")) {
+      this.$store.dispatch(
+        "setDarkMode",
+        JSON.parse(localStorage.getItem("darkMode"))
+      );
+    }
+    // Remove information box after 6 seconds
+    setTimeout(function () {
+      document.getElementById("arrow_box").style.opacity = 0;
+    }, 6000);
+  },
+};
+</script>
+<style lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  /* font-size Browser Default is 16px */
+  font-size: 93%;
+  width: 100vw;
+  overflow-x: hidden;
+
+  @include media(37.5em) {
+    font-size: 90%;
+  }
+}
+body {
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.7;
+  color: rgb(36, 36, 36);
+  box-sizing: border-box;
+  width: 100vw;
+  overflow: hidden;
+}
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  margin: 2.5rem 0;
+  @include media(56.25em) {
+    margin: 1rem 0;
+  }
+  @include media(1000px) {
+    font-size: 2rem;
+  }
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: pacifico;
+}
+input,
+select {
+  padding: 0.8rem;
+  &:focus {
+    outline: none;
+  }
+}
+ul {
+  list-style: none;
+}
+.built-with {
+  position: absolute;
+  right: 2rem;
+  top: 2rem;
+  background: $red;
+  color: white;
+  padding: 5px;
+  @include media(56.25em) {
+    display: none;
+  }
+}
+button {
+  cursor: pointer;
+}
+.arrow_box {
+  border: 4px solid #ff1a4b;
+  position: fixed;
+  top: 80px;
+  left: 10px;
+  background: $red;
+  color: white;
+  width: 200px;
+  padding: 10px;
+  z-index: 9998;
+  transition: all 0.5s ease;
+}
+.arrow_box:after,
+.arrow_box:before {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.arrow_box:after {
+  border-color: rgba(255, 26, 75, 0);
+  border-bottom-color: #ff1a4b;
+  border-width: 20px;
+  margin-left: -20px;
+}
+.arrow_box:before {
+  border-color: rgba(255, 26, 75, 0);
+  border-bottom-color: #ff1a4b;
+  border-width: 26px;
+  margin-left: -26px;
+}
+.move-up {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 0;
+  right: 0;
+  border-right: 1px solid rgb(230, 230, 230);
+  background: rgb(250, 250, 250);
+  z-index: 9995;
+  @extend %center-div;
+  &:hover {
+    background: $red;
+    img {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(87deg)
+        brightness(119%) contrast(119%);
+    }
+  }
+  &.dark {
+    background: $dark;
+    img {
+      filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(87deg)
+        brightness(119%) contrast(119%);
+    }
+    &:hover {
+      background: $red;
+    }
+  }
+}
+</style>
