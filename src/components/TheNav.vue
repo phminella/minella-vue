@@ -105,23 +105,37 @@
             /></a>
           </p>
           <p>
-            <img height="20" src="/img/work/flags/japan.svg" alt="" />
-            <a href="minella-resume-japanese.pdf" download
-              >履歴書.pdf (japanese)
-              <img
-                height="20"
-                class="icon-download"
-                src="/img/icon-download.png"
-                alt=""
-                v-if="$store.state.darkMode" />
-              <img
-                height="20"
-                class="icon-download"
-                src="/img/icon-download-dark.png"
-                alt=""
-                v-if="!$store.state.darkMode"
-            /></a>
-          </p>
+              <img height="20" src="/img/work/flags/japan.svg" alt="" />
+              <a href="minella-resume-ミネラパウロ履歴書.xlsx" download
+              >履歴書.xlsx (japanese)
+                <img
+                  height="20"
+                  v-if="$store.state.darkMode"
+                  src="/img/icon-download.png"
+                  alt="" />
+                <img
+                  height="20"
+                  v-if="!$store.state.darkMode"
+                  src="/img/icon-download-dark.png"
+                  alt=""
+                /></a>
+            </p>
+            <p>
+              <img height="20" src="/img/work/flags/japan.svg" alt="" />
+              <a href="職務経歴書.pdf" download
+              >職務経歴書.pdf (japanese)
+                <img
+                  height="20"
+                  v-if="$store.state.darkMode"
+                  src="/img/icon-download.png"
+                  alt="" />
+                <img
+                  height="20"
+                  v-if="!$store.state.darkMode"
+                  src="/img/icon-download-dark.png"
+                  alt=""
+                /></a>
+            </p>
         </footer>
       </ul>
     </div>
